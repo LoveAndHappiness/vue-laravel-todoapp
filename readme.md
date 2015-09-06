@@ -11,10 +11,13 @@
    ```composer install```
    
 3. Install Node Packages for Vue, Vue-resource, Gulp, Bootstrap and Laravel Elixir
-   ```npm install```
-4. Compile Javascript and Sass Files
-   ```gulp```
 
+   ```npm install```
+
+4. Compile Javascript and Sass Files
+
+   ``` gulp ```
+   
 
 ## Explanation
 
