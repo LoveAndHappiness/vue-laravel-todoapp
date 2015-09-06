@@ -3,9 +3,13 @@
 ## Install
 
 1. Clone the repository
+
    ```git clone https://github.com/LoveAndHappiness/Laravel-Vue-TaskApp.git```
+   
 2. Run Composer from the Command Line
+
    ```composer install```
+   
 3. Install Node Packages for Vue, Vue-resource, Gulp, Bootstrap and Laravel Elixir
    ```npm install```
 4. Compile Javascript and Sass Files
