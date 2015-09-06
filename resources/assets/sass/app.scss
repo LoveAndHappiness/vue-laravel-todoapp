@@ -1,2 +1,33 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+.task-list {
+    .task {
+        .view {
+            display: block;
+            .options {
+                float: right;
+            }
+        }
+        .edit {
+            display: none;
+        }
+    }
+
+    .task.editing {
+        .view {
+            display: none;
+        }
+        .edit {
+            display: block;
+        }
+    }
+
+    .task.completed {
+        .view {
+            span {
+                color: lightgrey;
+                text-decoration: line-through;
+            }
+        }
+    }
+}
