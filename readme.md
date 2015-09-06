@@ -1,4 +1,4 @@
-# Laravvel VueJs Task App
+# Laravel VueJs Task App
 
 ## Install
 
