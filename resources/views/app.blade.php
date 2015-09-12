@@ -6,6 +6,7 @@
     <meta id="token" value="{{ csrf_token() }}">
     <title>Vue Todo App</title>
     <link rel="stylesheet" href="css/app.css">
+    @yield('head')
 </head>
 <body>
     <div class="container">

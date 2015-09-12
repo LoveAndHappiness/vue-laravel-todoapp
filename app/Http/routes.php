@@ -17,4 +17,6 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'api'], function () {
     Route::resource('tasks', 'TasksController');
+    Route::post('tasks/complete-all', 'TasksController@completeAll');
+    Route::post('tasks/clear-completed', 'TasksController@clearCompleted');
 });

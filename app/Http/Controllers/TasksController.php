@@ -44,7 +44,7 @@ class TasksController extends Controller
         //
         Task::create(Input::all());
 
-        return response()->json(Input::all());
+        return response()->json(['message' => 'Task successfully created']);
     }
 
     /**
@@ -94,6 +94,37 @@ class TasksController extends Controller
     {
         //
         Task::destroy($id);
+
         return response()->json(['message' => 'Success'], 200);
+    }
+
+    /**
+     * Complete all tasks
+     * @return [type] [description]
+     */
+    public function completeAll() 
+    {
+        $tasks = Task::where('completed', false)->get();
+
+        foreach ($tasks as $task) {
+            Task::where('id', $task->id)->update(['completed' => true]);
+        }
+
+        return response()->json(['message' => 'All tasks completed'], 200);
+    }
+
+    /**
+     * Clear all completed tasks
+     * @return [type] [description]
+     */
+    public function clearCompleted() 
+    {
+        $tasks = Task::where('completed', true)->get();
+
+        foreach ($tasks as $task) {
+            Task::where('id', $task->id)->delete();
+        }
+
+        return response()->json(['message' => 'Completed tasks removed'], 200);
     }
 }

@@ -6,6 +6,16 @@
             display: block;
             .options {
                 float: right;
+                button {
+                    background: none;
+                    border:none;
+                    .glyphicon-ok {
+                        color: green;
+                    }
+                    .glyphicon-remove {
+                        color: darkred;
+                    }
+                }
             }
         }
         .edit {

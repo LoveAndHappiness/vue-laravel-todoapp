@@ -5995,6 +5995,13 @@ button.close {
   display: block; }
   .task-list .task .view .options {
     float: right; }
+    .task-list .task .view .options button {
+      background: none;
+      border: none; }
+      .task-list .task .view .options button .glyphicon-ok {
+        color: green; }
+      .task-list .task .view .options button .glyphicon-remove {
+        color: darkred; }
 
 .task-list .task .edit {
   display: none; }

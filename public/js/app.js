@@ -11027,11 +11027,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
         methods: {
             fetchTasks: function () {
-                this.$http.get('/api/tasks', function (tasks) {
+                this.$http.get('api/tasks', function (tasks) {
                     this.$set('tasks', tasks);
                 })
                     .error(function () {
-                        console.log('Fetching tasks from /api/tasks failed.');
+                        console.log('Fetching tasks failed.');
                     });
             },
 
@@ -11048,17 +11048,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
                 this.newTask = '';
 
-                this.$http.post('/api/tasks', task);
+                this.$http.post('api/tasks', task);
             },
 
             toggleTaskCompletion: function (task) {
                 task.completed = !task.completed;
-                this.$http.put('/api/tasks/' + task.id, task);
+                this.$http.put('api/tasks/' + task.id, task);
             },
 
             removeTask: function (task) {
                 this.tasks.$remove(task);
-                this.$http.delete('/api/tasks/' + task.id, task);
+                this.$http.delete('api/tasks/' + task.id, task);
             },
 
             editTask: function (task) {
@@ -11080,7 +11080,7 @@ return /******/ (function(modules) { // webpackBootstrap
                     this.removeTask(task);
                 }
 
-                this.$http.put('/api/tasks/' + task.id, task);
+                this.$http.put('api/tasks/' + task.id, task);
             },
 
             cancelEdit: function (task) {
@@ -11089,27 +11089,22 @@ return /******/ (function(modules) { // webpackBootstrap
             },
 
             completeAll: function () {
-                var that = this;
                 this.tasks.forEach(function (task) {
                     task.completed = true;
-                    that.$http.put('/api/tasks/' + task.id, task);
                 });
+
+                // ajax request
+                this.$http.post('api/tasks/complete-all');
             },
 
             clearCompleted: function () {
-                var that = this;
-
-                var toBeClearedTasks = this.tasks.filter(function (task) {
-                    return task.completed;
-                });
-
-                toBeClearedTasks.forEach(function (task) {
-                    that.$http.delete('/api/tasks/' + task.id, task);
-                });
 
                 this.tasks = this.tasks.filter(function (task) {
                     return !task.completed;
                 });
+
+                // ajax request
+                this.$http.post('api/tasks/clear-completed');
             }
         },
 
